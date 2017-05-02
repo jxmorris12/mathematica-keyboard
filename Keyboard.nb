@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     14615,        385]
-NotebookOptionsPosition[     14284,        368]
-NotebookOutlinePosition[     14640,        384]
-CellTagsIndexPosition[     14597,        381]
+NotebookDataLength[     12505,        337]
+NotebookOptionsPosition[     12174,        320]
+NotebookOutlinePosition[     12530,        336]
+CellTagsIndexPosition[     12487,        333]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -33,19 +33,34 @@ Cell[BoxData[
        ",", "\"\<A#\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"whiteNotes", "=", 
-     RowBox[{"{", 
-      RowBox[{
-      "\"\<C\>\"", ",", "\"\<D\>\"", ",", "\"\<E\>\"", ",", "\"\<F\>\"", ",", 
-       "\"\<G\>\"", ",", "\"\<A\>\"", ",", "\"\<B\>\"", ",", "\"\<C5\>\""}], 
-      "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"#", "<>", 
+         RowBox[{"ToString", "@", "baseOctave"}]}], " ", "&"}], ")"}], "/@", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<C\>\"", ",", "\"\<D\>\"", ",", "\"\<E\>\"", ",", "\"\<F\>\"", 
+        ",", "\"\<G\>\"", ",", "\"\<A\>\"", ",", "\"\<B\>\""}], "}"}]}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"whiteNotes", "=", 
+     RowBox[{"Join", "[", 
+      RowBox[{"whiteNotes", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<C\>\"", "<>", 
+         RowBox[{"ToString", "[", 
+          RowBox[{"baseOctave", "+", "1"}], "]"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{"Play", " ", "noise", " ", "function"}], " ", "*)"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"pianoNoteLength", "=", "0.6"}], ";", " ", 
-    RowBox[{"(*", " ", 
-     RowBox[{"Measured", " ", "in", " ", "seconds"}], " ", "*)"}], 
-    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"pianoNoteLength", "=", "0.6"}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Measured", " ", "in", " ", "seconds"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{
      RowBox[{"playSound", "[", "note_", "]"}], ":=", 
      RowBox[{"(", "\[IndentingNewLine]", 
@@ -238,132 +253,69 @@ Cell[BoxData[
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{"Display", " ", "all"}], " ", "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"Framed", "@", 
-    RowBox[{"Graphics", "[", "allKeyEventHandlers", "]"}]}], 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Column", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<Octave: \>\"", " ", "<>", " ", 
+         RowBox[{"ToString", "@", "octave"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"allKeyEventHandlers", ",", 
+          RowBox[{"FrameLabel", "\[Rule]", "\"\<JACK\>\""}]}], "]"}]}], "}"}],
+       "\[IndentingNewLine]", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"octave", ",", "1", ",", "7", ",", "1"}], "}"}]}], "]"}], 
    "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.7027443989237957`*^9, 3.7027444643103313`*^9}, {
-  3.702744581819125*^9, 3.702744648826132*^9}, {3.702744683119605*^9, 
-  3.702744744281207*^9}, {3.702744788713539*^9, 3.702744793400908*^9}, {
-  3.7027448468021507`*^9, 3.7027449125134573`*^9}}],
+   3.702744581819125*^9, 3.702744648826132*^9}, {3.702744683119605*^9, 
+   3.702744744281207*^9}, {3.702744788713539*^9, 3.702744793400908*^9}, {
+   3.7027448468021507`*^9, 3.7027449125134573`*^9}, {3.702744950750251*^9, 
+   3.702744964034998*^9}, 3.702745074103973*^9, {3.702745144010181*^9, 
+   3.702745148282839*^9}, {3.70274522616708*^9, 3.702745357477618*^9}, {
+   3.702745476802528*^9, 3.702745540671164*^9}, {3.7027456155487843`*^9, 
+   3.7027456560170803`*^9}, {3.7027457561789*^9, 3.702745756289803*^9}, 
+   3.702745804837845*^9}],
 
 Cell[BoxData[
- FrameBox[
-  GraphicsBox[
-   {RGBColor[0.98, 0.98, 0.98], EdgeForm[Thickness[Large]], 
-    TagBox[
-     DynamicBox[Typeset`ToBoxes[
-       Rectangle[{0, 0}, {20, 100}], StandardForm, Graphics],
-      ImageSizeCache->{{6.180000000000001, 
-       44.84382978723404}, {-95.10719999999998, 90.21194893617024}}],
-     EventHandlerTag[{
-      "MouseClicked" :> $CellContext`playSound["C"], PassEventsDown -> 
-       Automatic, PassEventsUp -> True}]], 
-    TagBox[
-     DynamicBox[Typeset`ToBoxes[
-       Rectangle[{24, 0}, {44, 100}], StandardForm, Graphics],
-      ImageSizeCache->{{50.176595744680846`, 
-       88.8404255319149}, {-95.10719999999998, 90.21194893617024}}],
-     EventHandlerTag[{
-      "MouseClicked" :> $CellContext`playSound["D"], PassEventsDown -> 
-       Automatic, PassEventsUp -> True}]], 
-    TagBox[
-     DynamicBox[Typeset`ToBoxes[
-       Rectangle[{48, 0}, {68, 100}], StandardForm, Graphics],
-      ImageSizeCache->{{94.1731914893617, 
-       132.83702127659575`}, {-95.10719999999998, 90.21194893617024}}],
-     EventHandlerTag[{
-      "MouseClicked" :> $CellContext`playSound["E"], PassEventsDown -> 
-       Automatic, PassEventsUp -> True}]], 
-    TagBox[
-     DynamicBox[Typeset`ToBoxes[
-       Rectangle[{72, 0}, {92, 100}], StandardForm, Graphics],
-      ImageSizeCache->{{138.16978723404256`, 
-       176.8336170212766}, {-95.10719999999998, 90.21194893617024}}],
-     EventHandlerTag[{
-      "MouseClicked" :> $CellContext`playSound["F"], PassEventsDown -> 
-       Automatic, PassEventsUp -> True}]], 
-    TagBox[
-     DynamicBox[Typeset`ToBoxes[
-       Rectangle[{96, 0}, {116, 100}], StandardForm, Graphics],
-      ImageSizeCache->{{182.1663829787234, 
-       220.83021276595744`}, {-95.10719999999998, 90.21194893617024}}],
-     EventHandlerTag[{
-      "MouseClicked" :> $CellContext`playSound["G"], PassEventsDown -> 
-       Automatic, PassEventsUp -> True}]], 
-    TagBox[
-     DynamicBox[Typeset`ToBoxes[
-       Rectangle[{120, 0}, {140, 100}], StandardForm, Graphics],
-      ImageSizeCache->{{226.16297872340425`, 
-       264.8268085106383}, {-95.10719999999998, 90.21194893617024}}],
-     EventHandlerTag[{
-      "MouseClicked" :> $CellContext`playSound["A"], PassEventsDown -> 
-       Automatic, PassEventsUp -> True}]], 
-    TagBox[
-     DynamicBox[Typeset`ToBoxes[
-       Rectangle[{144, 0}, {164, 100}], StandardForm, Graphics],
-      ImageSizeCache->{{270.1595744680851, 
-       308.82340425531913`}, {-95.10719999999998, 90.21194893617024}}],
-     EventHandlerTag[{
-      "MouseClicked" :> $CellContext`playSound["B"], PassEventsDown -> 
-       Automatic, PassEventsUp -> True}]], 
-    TagBox[
-     DynamicBox[Typeset`ToBoxes[
-       Rectangle[{168, 0}, {188, 100}], StandardForm, Graphics],
-      ImageSizeCache->{{314.15617021276597`, 352.82}, {-95.10719999999998, 
-       90.21194893617024}}],
-     EventHandlerTag[{
-      "MouseClicked" :> $CellContext`playSound["C5"], PassEventsDown -> 
-       Automatic, PassEventsUp -> True}]], 
-    {GrayLevel[0], 
-     TagBox[
-      DynamicBox[Typeset`ToBoxes[
-        Rectangle[{14, 
-          Rational[300, 7]}, {28, 100}], StandardForm, Graphics],
-       ImageSizeCache->{{31.844680851063828`, 
-        59.509361702127656`}, {-95.10719999999998, 11.6465993920973}}],
-      EventHandlerTag[{
-       "MouseClicked" :> $CellContext`playSound["C#"], PassEventsDown -> 
-        Automatic, PassEventsUp -> True}]], 
-     TagBox[
-      DynamicBox[Typeset`ToBoxes[
-        Rectangle[{38, 
-          Rational[300, 7]}, {52, 100}], StandardForm, Graphics],
-       ImageSizeCache->{{75.84127659574469, 
-        103.50595744680851`}, {-95.10719999999998, 11.6465993920973}}],
-      EventHandlerTag[{
-       "MouseClicked" :> $CellContext`playSound["D#"], PassEventsDown -> 
-        Automatic, PassEventsUp -> True}]], 
-     TagBox[
-      DynamicBox[Typeset`ToBoxes[
-        Rectangle[{86, 
-          Rational[300, 7]}, {100, 100}], StandardForm, Graphics],
-       ImageSizeCache->{{163.83446808510638`, 
-        191.4991489361702}, {-95.10719999999998, 11.6465993920973}}],
-      EventHandlerTag[{
-       "MouseClicked" :> $CellContext`playSound["F#"], PassEventsDown -> 
-        Automatic, PassEventsUp -> True}]], 
-     TagBox[
-      DynamicBox[Typeset`ToBoxes[
-        Rectangle[{110, 
-          Rational[300, 7]}, {124, 100}], StandardForm, Graphics],
-       ImageSizeCache->{{207.83106382978724`, 
-        235.49574468085106`}, {-95.10719999999998, 11.6465993920973}}],
-      EventHandlerTag[{
-       "MouseClicked" :> $CellContext`playSound["G#"], PassEventsDown -> 
-        Automatic, PassEventsUp -> True}]], 
-     TagBox[
-      DynamicBox[Typeset`ToBoxes[
-        Rectangle[{134, 
-          Rational[300, 7]}, {148, 100}], StandardForm, Graphics],
-       ImageSizeCache->{{251.82765957446807`, 
-        279.4923404255319}, {-95.10719999999998, 11.6465993920973}}],
-      EventHandlerTag[{
-       "MouseClicked" :> $CellContext`playSound["A#"], PassEventsDown -> 
-        Automatic, PassEventsUp -> True}]]}}],
-  StripOnInput->False]], "Output",
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`octave$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`octave$$], 1, 7, 1}}, Typeset`size$$ = {
+    180., {55.134033203125, 60.865966796875}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`octave$431671$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`octave$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`octave$$, $CellContext`octave$431671$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         StringJoin["Octave: ", 
+          ToString[$CellContext`octave$$]], 
+         Graphics[$CellContext`allKeyEventHandlers, FrameLabel -> "JACK"]}], 
+      "Specifications" :> {{$CellContext`octave$$, 1, 7, 1}}, "Options" :> {},
+       "DefaultOptions" :> {}],
+     ImageSizeCache->{271., {100., 105.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{
-  3.702744484623126*^9, {3.702744715530077*^9, 3.70274474460833*^9}, 
-   3.702744793835578*^9, {3.702744858984383*^9, 3.702744912785309*^9}}]
+  3.702745357797675*^9, 3.702745485543828*^9, {3.70274561784733*^9, 
+   3.702745657011941*^9}, 3.7027457566384087`*^9, 3.702745809978825*^9}]
 }, Open  ]]
 },
 WindowSize->{808, 651},
@@ -384,8 +336,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 8476, 224, 930, "Input"],
-Cell[9059, 248, 5209, 117, 225, "Output"]
+Cell[580, 22, 9696, 255, 964, "Input"],
+Cell[10279, 279, 1879, 38, 222, "Output"]
 }, Open  ]]
 }
 ]
