@@ -10,263 +10,240 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     12505,        337]
-NotebookOptionsPosition[     12174,        320]
-NotebookOutlinePosition[     12530,        336]
-CellTagsIndexPosition[     12487,        333]
+NotebookDataLength[     14351,        359]
+NotebookOptionsPosition[     13979,        341]
+NotebookOutlinePosition[     14335,        357]
+CellTagsIndexPosition[     14292,        354]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-
-Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{
-  RowBox[{"(*", " ", 
-   RowBox[{"Note", " ", "constants"}], " ", "*)"}], "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{
-    RowBox[{"blackNotes", "=", 
+   RowBox[{"createKeyboard", "[", 
+    RowBox[{"octave_", ",", "noteLength_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
      RowBox[{"{", 
       RowBox[{
-      "\"\<C#\>\"", ",", "\"\<D#\>\"", ",", "\"\<F#\>\"", ",", "\"\<G#\>\"", 
-       ",", "\"\<A#\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"whiteNotes", "=", 
+       RowBox[{"baseOctave", "=", "octave"}], ",", 
+       RowBox[{"pianoNoteLength", "=", "noteLength"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{"Note", " ", "constants"}], " ", "*)"}], "\[IndentingNewLine]", 
+     
      RowBox[{
-      RowBox[{"(", 
+      RowBox[{"blackNotes", "=", 
        RowBox[{
-        RowBox[{"#", "<>", 
-         RowBox[{"ToString", "@", "baseOctave"}]}], " ", "&"}], ")"}], "/@", 
-      RowBox[{"{", 
-       RowBox[{
-       "\"\<C\>\"", ",", "\"\<D\>\"", ",", "\"\<E\>\"", ",", "\"\<F\>\"", 
-        ",", "\"\<G\>\"", ",", "\"\<A\>\"", ",", "\"\<B\>\""}], "}"}]}]}], 
-    ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"whiteNotes", "=", 
-     RowBox[{"Join", "[", 
-      RowBox[{"whiteNotes", ",", 
-       RowBox[{"{", 
-        RowBox[{"\"\<C\>\"", "<>", 
-         RowBox[{"ToString", "[", 
-          RowBox[{"baseOctave", "+", "1"}], "]"}]}], "}"}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{"Play", " ", "noise", " ", "function"}], " ", "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"pianoNoteLength", "=", "0.6"}], ";"}], " ", 
-   RowBox[{"(*", " ", 
-    RowBox[{"Measured", " ", "in", " ", "seconds"}], " ", "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"playSound", "[", "note_", "]"}], ":=", 
-     RowBox[{"(", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"EmitSound", "@", 
-        RowBox[{"Sound", "@", 
-         RowBox[{"SoundNote", "[", 
-          RowBox[{"note", ",", "pianoNoteLength", ",", "\"\<Piano\>\""}], 
-          "]"}]}]}], ";"}], "\[IndentingNewLine]", ")"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-    "Eight", " ", "ivory", " ", "rectangles", " ", "next", " ", "to", " ", 
-     "each", " ", "other"}], " ", "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"Ivory", "=", 
-     RowBox[{"RGBColor", "[", 
-      RowBox[{"0.98", ",", "0.98", ",", "0.98"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"whiteKeyWidth", " ", "=", " ", "20"}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"whiteKeyHeight", "=", "100"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"whiteKeyPadding", "=", "4"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"whiteKeyTopLeftCorners", "=", 
-     RowBox[{"NestList", "[", 
-      RowBox[{
-       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"#", "<>", 
+           RowBox[{"ToString", "@", "baseOctave"}]}], " ", "&"}], ")"}], "/@", 
         RowBox[{"{", 
          RowBox[{
+         "\"\<C#\>\"", ",", "\"\<D#\>\"", ",", "\"\<F#\>\"", ",", 
+          "\"\<G#\>\"", ",", "\"\<A#\>\""}], "}"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"whiteNotes", "=", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"#", "<>", 
+           RowBox[{"ToString", "@", "baseOctave"}]}], " ", "&"}], ")"}], "/@", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<C\>\"", ",", "\"\<D\>\"", ",", "\"\<E\>\"", ",", "\"\<F\>\"", 
+          ",", "\"\<G\>\"", ",", "\"\<A\>\"", ",", "\"\<B\>\""}], "}"}]}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"whiteNotes", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{"whiteNotes", ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<C\>\"", "<>", 
+           RowBox[{"ToString", "[", 
+            RowBox[{"baseOctave", "+", "1"}], "]"}]}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Play", " ", "noise", " ", "function"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "pianoNoteLength", " ", "is", " ", "measured", " ", "in", " ", 
+        "seconds"}], " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"playSound", "[", "note_", "]"}], ":=", 
+       RowBox[{"(", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"EmitSound", "@", 
+          RowBox[{"Sound", "@", 
+           RowBox[{"SoundNote", "[", 
+            RowBox[{"note", ",", "pianoNoteLength", ",", "\"\<Piano\>\""}], 
+            "]"}]}]}], ";"}], "\[IndentingNewLine]", ")"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "Eight", " ", "ivory", " ", "rectangles", " ", "next", " ", "to", " ", 
+        "each", " ", "other"}], " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"Ivory", "=", 
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"0.98", ",", "0.98", ",", "0.98"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"whiteKeyWidth", " ", "=", " ", "20"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"whiteKeyHeight", "=", "100"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"whiteKeyPadding", "=", "4"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"whiteKeyTopLeftCorners", "=", 
+       RowBox[{"NestList", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"#", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "+", "whiteKeyWidth", "+", 
+             "whiteKeyPadding"}], ",", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "}"}], "&"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}], ",", "7"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"whiteKeyBotRightCorners", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"whiteKeyWidth", ",", "whiteKeyHeight"}], "}"}], "+", 
+          "#"}], "&"}], "/@", "whiteKeyTopLeftCorners"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"whiteRectangles", "=", 
+       RowBox[{"MapThread", "[", 
+        RowBox[{"Rectangle", ",", 
+         RowBox[{"{", 
+          RowBox[{"whiteKeyTopLeftCorners", ",", "whiteKeyBotRightCorners"}], 
+          "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Eight", " ", "black", " ", "keys"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"blackCorners", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "+", 
+              RowBox[{
+               RowBox[{"(", "whiteKeyWidth", ")"}], "/", "2"}], "+", 
+              "whiteKeyPadding"}], ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], "[", 
+               RowBox[{"[", "2", "]"}], "]"}], "*", 
+              RowBox[{"3", "/", "7"}]}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "+", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"whiteKeyWidth", "-", "whiteKeyPadding"}], ")"}], "/",
+                "2"}]}], ",", 
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}], "}"}], "&"}], "/@", 
+        "whiteRectangles"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"blackRectangles", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Rectangle", "[", 
           RowBox[{
            RowBox[{"#", "[", 
-            RowBox[{"[", "1", "]"}], "]"}], "+", "whiteKeyWidth", "+", 
-           "whiteKeyPadding"}], ",", 
-          RowBox[{"#", "[", 
-           RowBox[{"[", "2", "]"}], "]"}]}], "}"}], "&"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"0", ",", "0"}], "}"}], ",", "7"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"whiteKeyBotRightCorners", "=", 
-     RowBox[{
-      RowBox[{
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "&"}], "/@", 
+        "blackCorners"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"blackKeyDisplay", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{"{", "Black", "}"}], ",", "blackRectangles"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Remove", " ", "three", " ", "black", " ", "keys"}], " ", 
+       "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"blackRectangles", "=", 
+       RowBox[{"blackRectangles", "[", 
+        RowBox[{"[", 
+         RowBox[{";;", "6"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"blackRectangles", "=", 
+       RowBox[{"Delete", "[", 
+        RowBox[{"blackRectangles", ",", "3"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
        RowBox[{
-        RowBox[{"{", 
-         RowBox[{"whiteKeyWidth", ",", "whiteKeyHeight"}], "}"}], "+", "#"}], 
-       "&"}], "/@", "whiteKeyTopLeftCorners"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"whiteRectangles", "=", 
-     RowBox[{"MapThread", "[", 
-      RowBox[{"Rectangle", ",", 
-       RowBox[{"{", 
-        RowBox[{"whiteKeyTopLeftCorners", ",", "whiteKeyBotRightCorners"}], 
-        "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{"Eight", " ", "black", " ", "keys"}], " ", "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"blackCorners", "=", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"{", 
+       "Create", " ", "event", " ", "handlers", " ", "for", " ", "key", " ", 
+        "clicks"}], " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"allKeys", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{"whiteKeyDisplay", ",", "blackKeyDisplay"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"whiteRectangleEventHandlers", " ", "=", " ", 
+       RowBox[{"MapThread", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"EventHandler", "[", 
+           RowBox[{
+            RowBox[{"Dynamic", "[", "#1", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<MouseClicked\>\"", "\[RuleDelayed]", 
+              RowBox[{"playSound", "[", "#2", "]"}]}], "}"}]}], "]"}], "&"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{"whiteRectangles", ",", " ", "whiteNotes"}], "}"}]}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"blackRectangleEventHandlers", " ", "=", " ", 
+       RowBox[{"MapThread", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"EventHandler", "[", 
+           RowBox[{
+            RowBox[{"Dynamic", "[", "#1", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<MouseClicked\>\"", "\[RuleDelayed]", 
+              RowBox[{"playSound", "[", "#2", "]"}]}], "}"}]}], "]"}], "&"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{"blackRectangles", ",", " ", "blackNotes"}], "}"}]}], 
+        "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Display", " ", "Specifics"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"whiteKeyDisplay", "=", 
+       RowBox[{"Join", "[", 
         RowBox[{
          RowBox[{"{", 
           RowBox[{
-           RowBox[{
-            RowBox[{
-             RowBox[{"#", "[", 
-              RowBox[{"[", "1", "]"}], "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], "+", 
-            RowBox[{
-             RowBox[{"(", "whiteKeyWidth", ")"}], "/", "2"}], "+", 
-            "whiteKeyPadding"}], ",", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"#", "[", 
-              RowBox[{"[", "2", "]"}], "]"}], "[", 
-             RowBox[{"[", "2", "]"}], "]"}], "*", 
-            RowBox[{"3", "/", "7"}]}]}], "}"}], ",", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            RowBox[{
-             RowBox[{"#", "[", 
-              RowBox[{"[", "2", "]"}], "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], "+", 
-            RowBox[{
-             RowBox[{"(", 
-              RowBox[{"whiteKeyWidth", "-", "whiteKeyPadding"}], ")"}], "/", 
-             "2"}]}], ",", 
-           RowBox[{
-            RowBox[{"#", "[", 
-             RowBox[{"[", "2", "]"}], "]"}], "[", 
-            RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}], "}"}], "&"}], "/@", 
-      "whiteRectangles"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"blackRectangles", "=", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"Rectangle", "[", 
+           RowBox[{"EdgeForm", "[", "Thick", "]"}], ",", "Ivory"}], "}"}], 
+         ",", " ", "whiteRectangleEventHandlers"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"blackKeyDisplay", "=", 
+       RowBox[{"Join", "[", 
         RowBox[{
-         RowBox[{"#", "[", 
-          RowBox[{"[", "1", "]"}], "]"}], ",", 
-         RowBox[{"#", "[", 
-          RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "&"}], "/@", 
-      "blackCorners"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"blackKeyDisplay", "=", 
-     RowBox[{"Join", "[", 
-      RowBox[{
-       RowBox[{"{", "Black", "}"}], ",", "blackRectangles"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{"Remove", " ", "three", " ", "black", " ", "keys"}], " ", "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"blackRectangles", "=", 
-     RowBox[{"blackRectangles", "[", 
-      RowBox[{"[", 
-       RowBox[{";;", "6"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"blackRectangles", "=", 
-     RowBox[{"Delete", "[", 
-      RowBox[{"blackRectangles", ",", "3"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-    "Create", " ", "event", " ", "handlers", " ", "for", " ", "key", " ", 
-     "clicks"}], " ", "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"allKeys", "=", 
-     RowBox[{"Join", "[", 
-      RowBox[{"whiteKeyDisplay", ",", "blackKeyDisplay"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"whiteRectangleEventHandlers", " ", "=", " ", 
-     RowBox[{"MapThread", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"EventHandler", "[", 
-         RowBox[{
-          RowBox[{"Dynamic", "[", "#1", "]"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"\"\<MouseClicked\>\"", "\[RuleDelayed]", 
-            RowBox[{"playSound", "[", "#2", "]"}]}], "}"}]}], "]"}], "&"}], 
-       ",", 
-       RowBox[{"{", 
-        RowBox[{"whiteRectangles", ",", " ", "whiteNotes"}], "}"}]}], "]"}]}],
-     ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"blackRectangleEventHandlers", " ", "=", " ", 
-     RowBox[{"MapThread", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"EventHandler", "[", 
-         RowBox[{
-          RowBox[{"Dynamic", "[", "#1", "]"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"\"\<MouseClicked\>\"", "\[RuleDelayed]", 
-            RowBox[{"playSound", "[", "#2", "]"}]}], "}"}]}], "]"}], "&"}], 
-       ",", 
-       RowBox[{"{", 
-        RowBox[{"blackRectangles", ",", " ", "blackNotes"}], "}"}]}], "]"}]}],
-     ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{"Display", " ", "Specifics"}], " ", "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"whiteKeyDisplay", "=", 
-     RowBox[{"Join", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"EdgeForm", "[", "Thick", "]"}], ",", "Ivory"}], "}"}], ",", 
-       " ", "whiteRectangleEventHandlers"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"blackKeyDisplay", "=", 
-     RowBox[{"Join", "[", 
-      RowBox[{
-       RowBox[{"{", "Black", "}"}], ",", "blackRectangleEventHandlers"}], 
-      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"allKeyEventHandlers", " ", "=", " ", 
-     RowBox[{"Join", "[", 
-      RowBox[{"whiteKeyDisplay", ",", "blackKeyDisplay"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{"Display", " ", "all"}], " ", "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"Manipulate", "[", 
-    RowBox[{
-     RowBox[{"Column", "[", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"\"\<Octave: \>\"", " ", "<>", " ", 
-         RowBox[{"ToString", "@", "octave"}]}], ",", "\[IndentingNewLine]", 
-        RowBox[{"Graphics", "[", 
-         RowBox[{"allKeyEventHandlers", ",", 
-          RowBox[{"FrameLabel", "\[Rule]", "\"\<JACK\>\""}]}], "]"}]}], "}"}],
-       "\[IndentingNewLine]", "]"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"octave", ",", "1", ",", "7", ",", "1"}], "}"}]}], "]"}], 
-   "\[IndentingNewLine]"}]}]], "Input",
+         RowBox[{"{", "Black", "}"}], ",", "blackRectangleEventHandlers"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"allKeyEventHandlers", " ", "=", " ", 
+       RowBox[{"Join", "[", 
+        RowBox[{"whiteKeyDisplay", ",", "blackKeyDisplay"}], "]"}]}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]"}]], "Input",
  CellChangeTimes->{{3.7027443989237957`*^9, 3.7027444643103313`*^9}, {
    3.702744581819125*^9, 3.702744648826132*^9}, {3.702744683119605*^9, 
    3.702744744281207*^9}, {3.702744788713539*^9, 3.702744793400908*^9}, {
@@ -275,23 +252,65 @@ Cell[BoxData[
    3.702745148282839*^9}, {3.70274522616708*^9, 3.702745357477618*^9}, {
    3.702745476802528*^9, 3.702745540671164*^9}, {3.7027456155487843`*^9, 
    3.7027456560170803`*^9}, {3.7027457561789*^9, 3.702745756289803*^9}, 
-   3.702745804837845*^9}],
+   3.702745804837845*^9, {3.7029307732893057`*^9, 3.702930811604537*^9}, {
+   3.702930871206891*^9, 3.7029309008448067`*^9}, {3.702931075610105*^9, 
+   3.7029311019652157`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Display", " ", "all"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"Column", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<Octave: \>\"", " ", "<>", " ", 
+        RowBox[{"ToString", "@", "octave"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{
+         RowBox[{"createKeyboard", "[", 
+          RowBox[{"octave", ",", "noteLength"}], "]"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}]}], "}"}], 
+     "\[IndentingNewLine]", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"octave", ",", "4", ",", "\"\<Octave\>\""}], "}"}], ",", "1", 
+      ",", "7", ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"noteLength", ",", "0.25", ",", "\"\<Note Length\>\""}], "}"}],
+       ",", 
+      RowBox[{"1", "/", "1000"}], ",", "1"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.702930821430592*^9, 3.70293082755619*^9}, {
+  3.7029308911411657`*^9, 3.702930892873831*^9}, {3.7029309397410297`*^9, 
+  3.70293093990893*^9}, {3.702930976797398*^9, 3.702930980998473*^9}, {
+  3.702931044085629*^9, 3.702931072168952*^9}}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`octave$$ = 1, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`noteLength$$ = 
+    0.648352, $CellContext`octave$$ = 2, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`octave$$], 1, 7, 1}}, Typeset`size$$ = {
-    180., {55.134033203125, 60.865966796875}}, Typeset`update$$ = 0, 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`octave$$], 4, "Octave"}, 1, 7, 1}, {{
+       Hold[$CellContext`noteLength$$], 0.25, "Note Length"}, 
+      Rational[1, 1000], 1}}, Typeset`size$$ = {
+    643., {182.134033203125, 187.865966796875}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`octave$431671$$ = 0}, 
+    True, $CellContext`octave$3498$$ = 0, $CellContext`noteLength$3499$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`octave$$ = 1}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`octave$$, $CellContext`octave$431671$$, 0]}, 
+     1, StandardForm, 
+      "Variables" :> {$CellContext`noteLength$$ = 0.25, $CellContext`octave$$ = 
+        4}, "ControllerVariables" :> {
+        Hold[$CellContext`octave$$, $CellContext`octave$3498$$, 0], 
+        Hold[$CellContext`noteLength$$, $CellContext`noteLength$3499$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -299,10 +318,13 @@ Cell[BoxData[
          Typeset`skipInitDone$$}, "Body" :> Column[{
          StringJoin["Octave: ", 
           ToString[$CellContext`octave$$]], 
-         Graphics[$CellContext`allKeyEventHandlers, FrameLabel -> "JACK"]}], 
-      "Specifications" :> {{$CellContext`octave$$, 1, 7, 1}}, "Options" :> {},
-       "DefaultOptions" :> {}],
-     ImageSizeCache->{271., {100., 105.}},
+         Graphics[
+          $CellContext`createKeyboard[$CellContext`octave$$, \
+$CellContext`noteLength$$], ImageSize -> Full]}], 
+      "Specifications" :> {{{$CellContext`octave$$, 4, "Octave"}, 1, 7, 
+         1}, {{$CellContext`noteLength$$, 0.25, "Note Length"}, 
+         Rational[1, 1000], 1}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{688., {241., 246.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -313,9 +335,8 @@ Cell[BoxData[
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{
-  3.702745357797675*^9, 3.702745485543828*^9, {3.70274561784733*^9, 
-   3.702745657011941*^9}, 3.7027457566384087`*^9, 3.702745809978825*^9}]
+ CellChangeTimes->{{3.7029308850090923`*^9, 3.702930940880929*^9}, 
+   3.702931066455175*^9, 3.7029311059593077`*^9}]
 }, Open  ]]
 },
 WindowSize->{808, 651},
@@ -335,9 +356,10 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[558, 20, 9813, 236, 913, "Input"],
 Cell[CellGroupData[{
-Cell[580, 22, 9696, 255, 964, "Input"],
-Cell[10279, 279, 1879, 38, 222, "Output"]
+Cell[10396, 260, 1264, 31, 80, "Input"],
+Cell[11663, 293, 2300, 45, 504, "Output"]
 }, Open  ]]
 }
 ]
